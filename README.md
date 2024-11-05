@@ -27,7 +27,7 @@ docker-compose up --build -d
 ### 3. Access Container
 #### Command for MySQL CLI
 ```bash
-docker exec -it company_mysql_db mysql -u root CompanyDB
+docker exec -it company_mysql_db mycli -u root CompanyDB
 ```
 
 #### Command for Container Terminal
