@@ -1,0 +1,9 @@
+services:
+  mysql:
+    build: .
+    container_name: company_mysql_db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: AntonsDB
+    ports:
+      - "3306:3306"  # Map MySQL port to host
