@@ -8,5 +8,7 @@ RUN microdnf install -y less python3 python3-pip && \
 # Copy the SQL file to the Docker container
 COPY CreateTables.sql /docker-entrypoint-initdb.d/
 
+COPY PopulateData.sql /docker-entrypoint-initdb.d/
+
 # Expose MySQL port
 EXPOSE 3306
