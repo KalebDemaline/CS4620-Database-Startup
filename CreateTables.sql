@@ -1,9 +1,9 @@
 CREATE TABLE BASE_PRICE (
     base_id         INT             NOT NULL,
+    size            VARCHAR(7)      NOT NULL,
     crust_type      VARCHAR(11)     NOT NULL,
     price           Decimal(10, 2) NOT NULL,
     cost            Decimal(10, 2) NOT NULL,
-    size            VARCHAR(7)      NOT NULL,
     CONSTRAINT BID_PK
 		PRIMARY KEY(base_id)
     -- TODO contrain options
@@ -35,7 +35,7 @@ CREATE TABLE PIZZA (
 
 CREATE TABLE TOPPINGS (
     top_id          INT             NOT NULL,
-    name            VARCHAR(11)     NOT NULL,
+    name            VARCHAR(20)     NOT NULL,
     unit_cost       Decimal(10, 2) NOT NULL,
     unit_price      Decimal(10, 2) NOT NULL,
     inventory_level INT             NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE PIZZA_TOPPINGS (
 
 CREATE TABLE TOPPING_AMOUNT (
     amount_id   INT             NOT NULL,
-    amount      INT             NOT NULL,
+    amount      Decimal(4,2)    NOT NULL,
     size        VARCHAR(7)      NOT NULL,
     top_id      INT             NOT NULL,
     CONSTRAINT TA_PK
@@ -68,6 +68,7 @@ CREATE TABLE TOPPING_AMOUNT (
 
 CREATE TABLE DISCOUNT (
     discount_id INT             NOT NULL,
+    name        VARCHAR(20)     NOT NULL, 
     CONSTRAINT D_PK
 		PRIMARY KEY(discount_id)
 );
@@ -105,7 +106,7 @@ CREATE TABLE DOLLAR_AMOUNT (
 
 CREATE TABLE PERCENTAGE (
     discount_id INT             NOT NULL,
-    percentage  DECIMAL(3,2)    NOT NULL,
+    percentage  DECIMAL(5,2)    NOT NULL,
     CONSTRAINT P_PK
 		PRIMARY KEY(discount_id),
     CONSTRAINT P_DID_FK
