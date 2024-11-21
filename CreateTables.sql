@@ -117,7 +117,7 @@ CREATE TABLE SEAT_NUMBERS (
     seat_number INT             NOT NULL,
     order_id    INT             NOT NULL,
     CONSTRAINT SN_PK
-		PRIMARY KEY(order_id),
+		PRIMARY KEY(order_id, seat_number),
     CONSTRAINT SN_OID_FK
 		FOREIGN KEY(order_id) REFERENCES ORDERS(order_id)
 );
