@@ -273,11 +273,23 @@ VALUES (14, 4, FALSE),  -- Chicken
 INSERT INTO REMOTE (cust_id, order_id, pick_up)
 VALUES (3, 7, FALSE);
 
--- -- ORDER 8 
+-- ORDER 8 
 
--- -- On March 6th at 8:32 pm Milo Auckerman ordered two large thin crust pizzas. One had the 4
--- -- cheese blend on it (extra) (P: 12, C: 3.75), the other was regular cheese and pepperoni (extra) (P:12, C:
--- -- 2.55). He used the employee discount on his order. He had them delivered to 8879 Suburban Home,
--- -- Athens OH 45701. His phone number is 740-878-5679.
+INSERT INTO ORDERS (order_id, price, cost)
+VALUES (8, 24.00, 7.30);
+INSERT INTO CUSTOMER (cust_id, name, address, phone_number)
+VALUES (8, 'Milo Auckerman', '8879 Suburban Home, Athens OH 45701', '7408785679');
+INSERT INTO REMOTE (cust_id, order_id, pick_up)
+VALUES (3, 8, FALSE);
+INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
+VALUES (15, 12.00, 3.75, 'Completed', '2024-03-06 20:32:00', 9, 8),  -- Large Thin Crust (9)
+       (16, 12.00, 2.55, 'Completed', '2024-03-06 20:32:00', 9, 8);  -- Large Thin Crust (9)
+INSERT INTO PIZZA_TOPPINGS (pizza_id, top_id, extra)
+VALUES (15, 14, TRUE),  -- 4 Cheese Blend (extra)
+       (16, 13, FALSE), -- Regular Cheese
+       (16, 1, TRUE);  -- Pepperoni (extra)
+INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)
+VALUES (3, 1),  -- Employee discount (1)
+       (4, 1);  -- Employee Discount (1)
 
--- SET FOREIGN_KEY_CHECKS = 1;
+SET FOREIGN_KEY_CHECKS = 1;
