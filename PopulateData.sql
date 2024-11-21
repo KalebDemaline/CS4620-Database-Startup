@@ -125,65 +125,61 @@ INSERT INTO PERCENTAGE(discount_id, percentage) VALUES
 
 -- ORDER 1
 
+INSERT INTO ORDERS (order_id, price, cost) 
+VALUES (1, 13.50, 3.68);
+INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
+VALUES (1, 13.50, 3.68, 'Completed', '2024-03-05 12:03:00', 9, 1); -- Large Thin Crust
+INSERT INTO PIZZA_TOPPINGS (extra, pizza_id, top_id)
+VALUES
+  (TRUE, 1, 13), -- Regular Cheese (Extra)
+  (FALSE, 1, 1), -- Pepperoni
+  (FALSE, 1, 2); -- Sausage
+INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)
+VALUES (1, 3);  -- Lunch Special Large Discount
+INSERT INTO SEAT_NUMBERS (seat_number, order_id)
+VALUES (1, 1), (2, 1), (3, 1);
+INSERT INTO IN_PERSON (table_num, order_id)
+VALUES (14, 1);
 
--- MARCH 5 12:03
--- DINE IN
--- INSERT INTO ORDERS (order_id, price, cost) 
--- VALUES (1, 13.50, 3.68);
--- INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
--- VALUES (1, 13.50, 3.68, 'Completed', '2024-03-05 12:03:00', 1, 1); 
--- INSERT INTO PIZZA_TOPPINGS (extra, pizza_id, top_id)
--- VALUES
---   (TRUE, 1, 6),
---   (FALSE, 1, 7),
---   (FALSE, 1, 8);
--- INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)
--- VALUES (1, 1);
--- INSERT INTO SEAT_NUMBERS (seat_number, order_id)
--- VALUES (1, 1), (2, 1), (3, 1);
--- INSERT INTO IN_PERSON (table_num, order_id)
--- VALUES (14, 1);
+-- ORDER 2
 
--- -- ORDER 2
+INSERT INTO ORDERS (order_id, price, cost) 
+VALUES (2, 10.60, 3.23);
+INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
+VALUES (2, 10.60, 3.23, 'Completed', '2024-03-03 12:05:00', 7, 2);  -- medium pan
+INSERT INTO PIZZA_TOPPINGS (extra, pizza_id, top_id)
+VALUES
+  (FALSE, 2, 15),  -- Feta cheese
+  (FALSE, 2, 9),  -- Black olives
+  (FALSE, 2, 7),  -- Roma tomatoes
+  (FALSE, 2, 8),  -- Mushrooms
+  (FALSE, 2, 12);  -- Banana peppers
+INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)  -- lunch special medium discount (2), specialty pizza (4)
+VALUES (2, 2), (2, 4);
+INSERT INTO SEAT_NUMBERS (seat_number, order_id)
+VALUES (1, 2);
+INSERT INTO IN_PERSON (table_num, order_id)
+VALUES (4, 2);
 
--- INSERT INTO ORDERS (order_id, price, cost) 
--- VALUES (2, 10.60, 3.23);
--- INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
--- VALUES (2, 10.60, 3.23, 'Completed', '2024-03-03 12:05:00', 2, 2);  -- assuming base_id 2 for pan
--- INSERT INTO PIZZA_TOPPINGS (extra, pizza_id, top_id)
--- VALUES
---   (FALSE, 2, 1),  -- Feta cheese
---   (FALSE, 2, 2),  -- Black olives
---   (FALSE, 2, 3),  -- Roma tomatoes
---   (FALSE, 2, 4),  -- Mushrooms
---   (FALSE, 2, 5);  -- Banana peppers
--- INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)
--- VALUES (2, 2), (2, 3);
--- INSERT INTO SEAT_NUMBERS (seat_number, order_id)
--- VALUES (1, 2);
--- INSERT INTO IN_PERSON (table_num, order_id)
--- VALUES (4, 2);
+-- ORDER 3
 
+INSERT INTO ORDERS (order_id, price, cost) 
+VALUES (3, 6.75, 1.40);
+INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
+VALUES (3, 6.75, 1.40, 'Completed', '2024-03-03 12:05:00', 2, 3);  -- small original crust
+INSERT INTO PIZZA_TOPPINGS (extra, pizza_id, top_id)
+VALUES
+  (FALSE, 3, 13),  -- Regular cheese
+  (FALSE, 3, 4),  -- Chicken
+  (FALSE, 3, 12);  -- Banana peppers
+INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)
+VALUES (3, 3);
+INSERT INTO SEAT_NUMBERS (seat_number, order_id)
+VALUES (2, 3);
+INSERT INTO IN_PERSON (table_num, order_id)
+VALUES (4, 3);
 
--- -- ORDER 3
-
--- INSERT INTO ORDERS (order_id, price, cost) 
--- VALUES (3, 6.75, 1.40);
--- INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
--- VALUES (3, 6.75, 1.40, 'Completed', '2024-03-03 12:05:00', 10, 3);  -- assuming base_id 3 for original crust
--- INSERT INTO PIZZA_TOPPINGS (extra, pizza_id, top_id)
--- VALUES
---   (FALSE, 3, 6),  -- Regular cheese
---   (FALSE, 3, 7),  -- Chicken
---   (FALSE, 3, 5);  -- Banana peppers
--- INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)
--- VALUES (3, 3);
--- INSERT INTO SEAT_NUMBERS (seat_number, order_id)
--- VALUES (2, 3);
--- INSERT INTO IN_PERSON (table_num, order_id)
--- VALUES (4, 3);
-
--- -- order 4
+-- ORDER 4
 
 INSERT INTO ORDERS (order_id, price, cost) 
 VALUES (4, 10.75 * 6, 3.30 * 6);
@@ -214,7 +210,7 @@ INSERT INTO CUSTOMER (cust_id, name, address, phone_number) VALUES
 INSERT INTO REMOTE (cust_id, order_id, pick_up)
 VALUES (1, 4, TRUE);
 
--- -- Order 5
+-- Order 5
 
 INSERT INTO ORDERS (order_id, price, cost)
 VALUES (5, 14.50 + 17 + 14.00, 5.59 + 5.59 + 5.68);
@@ -237,39 +233,53 @@ INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id) VALUES
 INSERT INTO REMOTE (cust_id, order_id, pick_up) VALUES 
 (1, 5, TRUE);
 
--- SELECT 
---     O.order_id,
---     O.price AS order_price,
---     O.cost AS order_cost,
---     P.order_time,
---     C.name AS customer_name,
---     C.phone_number AS customer_phone,
---     I.table_num AS table_number,
---     S.seat_number,
---     P.pizza_id,
---     P.price AS pizza_price,
---     P.cost AS pizza_cost,
---     P.status AS pizza_status,
---     BP.size AS pizza_size,
---     BP.crust_type AS pizza_crust,
---     T.name AS topping_name,
---     PT.extra AS topping_extra,
---     D.name AS discount_name,
---     OD.discount_id AS order_discount_id,
---     PD.discount_id AS pizza_discount_id
--- FROM  ORDERS O
--- LEFT JOIN CUSTOMER C ON C.cust_id = O.order_id
--- LEFT JOIN SEAT_NUMBERS S ON S.order_id = O.order_id
--- LEFT JOIN IN_PERSON I ON I.order_id = O.order_id
--- LEFT JOIN PIZZA P ON P.order_id = O.order_id
--- LEFT JOIN BASE_PRICE BP ON BP.base_id = P.base_id
--- LEFT JOIN PIZZA_TOPPINGS PT ON PT.pizza_id = P.pizza_id
--- LEFT JOIN TOPPINGS T ON T.top_id = PT.top_id
--- LEFT JOIN PIZZA_DISCOUNT PD ON PD.pizza_id = P.pizza_id
--- LEFT JOIN DISCOUNT D ON D.discount_id = PD.discount_id
--- LEFT JOIN ORDER_DISCOUNT OD ON OD.order_id = O.order_id;
--- WHERE O.order_id = 1;
+-- ORDER 6
 
+-- Matt Engers 2
+-- pizza 13?
 
+INSERT INTO ORDERS (order_id, price, cost, order_time)
+VALUES (6, 16.85, 7.85, '2024-03-02 17:30:00');
+INSERT INTO CUSTOMER (cust_id, name, address, phone_number)
+VALUES (2, 'Matt Engers', 'N/A', '740-474-9953');
+INSERT INTO REMOTE (cust_id, order_id, pick_up)
+VALUES (6, 1, TRUE);
+INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
+VALUES (13, 16.85, 7.85, 'Completed', '2024-03-02 17:30:00', 16, 6);  -- X-Large Gluten-Free crust(16)
+INSERT INTO PIZZA_TOPPINGS (pizza_id, top_id, extra)
+VALUES (13, 5, FALSE),   -- Green Pepper
+       (13, 6, FALSE),   -- Onion
+       (13, 7, FALSE),   -- Roma Tomatoes
+       (13, 8, FALSE),   -- Mushrooms
+       (13, 9, FALSE),   -- Black Olives
+       (13, 16, FALSE);  -- Goat Cheese
+INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)
+VALUES (1, 4);  -- Specialty Pizza discount(4)
+
+-- ORDER 7
+
+-- Frank Turner
+
+INSERT INTO ORDERS (order_id, price, cost, order_time)
+VALUES (7, 13.25, 3.20, '2024-03-02 18:17:00');
+INSERT INTO CUSTOMER (cust_id, name, address, phone_number)
+VALUES (2, 'Frank Turner', '6745 Wessex St, Athens OH 45701', '740-232-8944');
+INSERT INTO REMOTE (cust_id, order_id, pick_up)
+VALUES (2, 7, FALSE);
+INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
+VALUES (14, 13.25, 3.20, 'Completed', '2024-03-02 18:17:00', 9, 7);  -- Large Thin crust(9)
+INSERT INTO PIZZA_TOPPINGS (pizza_id, top_id, extra)
+VALUES (14, 4, FALSE),  -- Chicken
+       (14, 5, FALSE),  -- Green Pepper
+       (14, 6, FALSE),  -- Onion
+       (14, 8, FALSE),  -- Mushrooms
+       (14, 14, FALSE);  -- Four Cheese Blend
+
+-- ORDER 8 
+
+-- On March 6th at 8:32 pm Milo Auckerman ordered two large thin crust pizzas. One had the 4
+-- cheese blend on it (extra) (P: 12, C: 3.75), the other was regular cheese and pepperoni (extra) (P:12, C:
+-- 2.55). He used the employee discount on his order. He had them delivered to 8879 Suburban Home,
+-- Athens OH 45701. His phone number is 740-878-5679.
 
 SET FOREIGN_KEY_CHECKS = 1;
