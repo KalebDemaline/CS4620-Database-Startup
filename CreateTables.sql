@@ -124,7 +124,7 @@ CREATE TABLE SEAT_NUMBERS (
 
 CREATE TABLE CUSTOMER (
     cust_id         INT             NOT NULL,
-    name            VARCHAR(11)     NOT NULL,
+    name            VARCHAR(50)     NOT NULL,
     address         VARCHAR(100)    NOT NULL,
     phone_number    VARCHAR(10)     NOT NULL,
     CONSTRAINT C_PK
