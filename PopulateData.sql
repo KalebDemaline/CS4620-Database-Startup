@@ -141,7 +141,7 @@ VALUES (1, 1), (2, 1), (3, 1);
 INSERT INTO IN_PERSON (table_num, order_id)
 VALUES (14, 1);
 
--- ORDER 2
+-- -- ORDER 2
 
 INSERT INTO ORDERS (order_id, price, cost) 
 VALUES (2, 10.60, 3.23);
@@ -161,7 +161,7 @@ VALUES (1, 2);
 INSERT INTO IN_PERSON (table_num, order_id)
 VALUES (4, 2);
 
--- ORDER 3
+-- -- ORDER 3
 
 INSERT INTO ORDERS (order_id, price, cost) 
 VALUES (3, 6.75, 1.40);
@@ -179,7 +179,7 @@ VALUES (2, 3);
 INSERT INTO IN_PERSON (table_num, order_id)
 VALUES (4, 3);
 
--- ORDER 4
+-- -- ORDER 4
 
 INSERT INTO ORDERS (order_id, price, cost) 
 VALUES (4, 10.75 * 6, 3.30 * 6);
@@ -210,7 +210,7 @@ INSERT INTO CUSTOMER (cust_id, name, address, phone_number) VALUES
 INSERT INTO REMOTE (cust_id, order_id, pick_up)
 VALUES (1, 4, TRUE);
 
--- Order 5
+-- -- Order 5
 
 INSERT INTO ORDERS (order_id, price, cost)
 VALUES (5, 14.50 + 17 + 14.00, 5.59 + 5.59 + 5.68);
@@ -233,17 +233,15 @@ INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id) VALUES
 INSERT INTO REMOTE (cust_id, order_id, pick_up) VALUES 
 (1, 5, TRUE);
 
--- ORDER 6
+-- -- ORDER 6
 
--- Matt Engers 2
--- pizza 13?
+-- -- Matt Engers 2
+-- -- pizza 13?
 
-INSERT INTO ORDERS (order_id, price, cost, order_time)
-VALUES (6, 16.85, 7.85, '2024-03-02 17:30:00');
+INSERT INTO ORDERS (order_id, price, cost)
+VALUES (6, 16.85, 7.85);
 INSERT INTO CUSTOMER (cust_id, name, address, phone_number)
-VALUES (2, 'Matt Engers', 'N/A', '740-474-9953');
-INSERT INTO REMOTE (cust_id, order_id, pick_up)
-VALUES (6, 1, TRUE);
+VALUES (2, 'Matt Engers', 'N/A', '7404749953');
 INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
 VALUES (13, 16.85, 7.85, 'Completed', '2024-03-02 17:30:00', 16, 6);  -- X-Large Gluten-Free crust(16)
 INSERT INTO PIZZA_TOPPINGS (pizza_id, top_id, extra)
@@ -255,17 +253,15 @@ VALUES (13, 5, FALSE),   -- Green Pepper
        (13, 16, FALSE);  -- Goat Cheese
 INSERT INTO PIZZA_DISCOUNT (pizza_id, discount_id)
 VALUES (1, 4);  -- Specialty Pizza discount(4)
-
--- ORDER 7
-
--- Frank Turner
-
-INSERT INTO ORDERS (order_id, price, cost, order_time)
-VALUES (7, 13.25, 3.20, '2024-03-02 18:17:00');
-INSERT INTO CUSTOMER (cust_id, name, address, phone_number)
-VALUES (2, 'Frank Turner', '6745 Wessex St, Athens OH 45701', '740-232-8944');
 INSERT INTO REMOTE (cust_id, order_id, pick_up)
-VALUES (2, 7, FALSE);
+VALUES (2, 6, TRUE);
+
+-- -- ORDER 7
+
+INSERT INTO ORDERS (order_id, price, cost)
+VALUES (7, 13.25, 3.20);
+INSERT INTO CUSTOMER (cust_id, name, address, phone_number)
+VALUES (3, 'Frank Turner', '6745 Wessex St, Athens OH 45701', '7402328944');
 INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
 VALUES (14, 13.25, 3.20, 'Completed', '2024-03-02 18:17:00', 9, 7);  -- Large Thin crust(9)
 INSERT INTO PIZZA_TOPPINGS (pizza_id, top_id, extra)
@@ -274,12 +270,14 @@ VALUES (14, 4, FALSE),  -- Chicken
        (14, 6, FALSE),  -- Onion
        (14, 8, FALSE),  -- Mushrooms
        (14, 14, FALSE);  -- Four Cheese Blend
+INSERT INTO REMOTE (cust_id, order_id, pick_up)
+VALUES (3, 7, FALSE);
 
--- ORDER 8 
+-- -- ORDER 8 
 
--- On March 6th at 8:32 pm Milo Auckerman ordered two large thin crust pizzas. One had the 4
--- cheese blend on it (extra) (P: 12, C: 3.75), the other was regular cheese and pepperoni (extra) (P:12, C:
--- 2.55). He used the employee discount on his order. He had them delivered to 8879 Suburban Home,
--- Athens OH 45701. His phone number is 740-878-5679.
+-- -- On March 6th at 8:32 pm Milo Auckerman ordered two large thin crust pizzas. One had the 4
+-- -- cheese blend on it (extra) (P: 12, C: 3.75), the other was regular cheese and pepperoni (extra) (P:12, C:
+-- -- 2.55). He used the employee discount on his order. He had them delivered to 8879 Suburban Home,
+-- -- Athens OH 45701. His phone number is 740-878-5679.
 
-SET FOREIGN_KEY_CHECKS = 1;
+-- SET FOREIGN_KEY_CHECKS = 1;
