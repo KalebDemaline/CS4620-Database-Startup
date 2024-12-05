@@ -278,9 +278,9 @@ VALUES (3, 7, FALSE);
 INSERT INTO ORDERS (order_id, price, cost)
 VALUES (8, 24.00, 7.30);
 INSERT INTO CUSTOMER (cust_id, name, address, phone_number)
-VALUES (8, 'Milo Auckerman', '8879 Suburban Home, Athens OH 45701', '7408785679');
+VALUES (4, 'Milo Auckerman', '8879 Suburban Home, Athens OH 45701', '7408785679');
 INSERT INTO REMOTE (cust_id, order_id, pick_up)
-VALUES (3, 8, FALSE);
+VALUES (4, 8, FALSE);
 INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
 VALUES (15, 12.00, 3.75, 'Completed', '2024-03-06 20:32:00', 9, 8),  -- Large Thin Crust (9)
        (16, 12.00, 2.55, 'Completed', '2024-03-06 20:32:00', 9, 8);  -- Large Thin Crust (9)
