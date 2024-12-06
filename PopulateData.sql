@@ -221,7 +221,7 @@ INSERT INTO PIZZA (pizza_id, price, cost, status, order_time, base_id, order_id)
 INSERT INTO PIZZA_TOPPINGS (extra, pizza_id, top_id) VALUES
 (FALSE, 10, 7),  -- Pepperoni
 (FALSE, 10, 8),  -- Sausage
-(TRUE, 11, 9),  -- Ham
+(TRUE, 11, 3),  -- Ham
 (TRUE, 11, 10),  -- Pineapple
 (FALSE, 12, 11),  -- Jalapeno
 (FALSE, 12, 17);  -- Bacon
