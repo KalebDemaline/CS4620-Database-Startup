@@ -3,7 +3,7 @@
 -- inventory level and the number of X-large pizzAS that could be made using that amount of the
 -- topping. Order alphabetically by topping name.
 
-SELECT name, inventory_level, inventory_level/amount AS max_xl_pizzAS
+SELECT name, inventory_level, inventory_level/amount AS max_xl_pizzas
 FROM TOPPINGS t
 JOIN TOPPING_AMOUNT ta ON t.top_id=ta.top_id
 WHERE size="x-large"
@@ -30,8 +30,8 @@ ORDER BY order_date;
 
 SELECT name, COUNT(*) AS num_orders, AVG(price) AS avg_price, SUM(price) AS total_price, MAX(price) AS max_price, MIN(price) AS min_price
 FROM REMOTE r
+JOIN ORDERS o ON o.order_id=r.order_id
 JOIN CUSTOMER c ON r.cust_id = c.cust_id
-JOIN ORDERS o ON o.order_id=r.cust_id
 GROUP BY r.cust_id;
 
 -- 4
@@ -119,7 +119,8 @@ FROM TOPPINGS t LEFT JOIN (
     JOIN `TOPPING_AMOUNT` ta ON ta.top_id = t.top_id 
     WHERE b.size = ta.size AND p.order_time LIKE '%03-03%' 
     GROUP BY t.name
-) o ON t.name = o.name;
+) o ON t.name = o.name
+ORDER BY t.name;
 
 -- 9
 SELECT size, COUNT(*) AS TotalPizzASOrdered, AVG(P.price) AS AveragePrice, AVG(P.cost) AS AverageCost 
